@@ -1,0 +1,24 @@
+{
+  "name": "scripts",
+  "version": "1.0.0",
+  "description": "Deploment scripts for prism ZK Credentials Plartform",
+  "main": "deploy.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "declare": "node deploy.js",
+    "deploy": "node deploy.js",
+    "verify": "node verify-deployment.js",
+    "setup": "node setup-contracts.js"
+  },
+  "dependencies": {
+    "starknet": "^8.9.0",
+    "dotenv": "^17.2.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
