@@ -1,0 +1,6 @@
+[package]
+name = "credential_verification"
+type = "bin"
+authors = [""]
+
+[dependencies]

@@ -1,0 +1,60 @@
+# Prover.toml - Input file for job application circuit execution
+
+# ============================================
+# PRIVATE INPUTS (Never revealed on-chain)
+# ============================================
+
+# Applicant identity
+applicant_secret = "77777"
+applicant_id = "200"
+
+# Credential data
+credential_id = "5000"
+credential_secret = "55555"
+credential_type = "1"  # Employment credential
+
+# Skills and qualifications
+skill_levels = ["8", "9", "7", "6", "8"]  # 5 skills rated 0-10
+years_of_experience = "5"    # Total years
+education_level = "3"        # 1=HS, 2=Bachelor, 3=Master, 4=PhD
+total_projects = "20"        # Number of completed projects
+
+# Certifications
+certifications = ["111", "222", "0"]  # Up to 3 certification hashes
+
+# Employment history (for verification)
+previous_companies = ["1001", "1002", "0"]
+previous_durations = ["2", "3", "0"]  # Duration at each company (in years)
+
+# References
+reference_hashes = ["999", "888"]  # 2 professional references
+
+# Optional: Proof of specific company experience
+has_company_proof = "0"  # 0 or 1
+company_merkle_proof = ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0"]
+company_merkle_indices = ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0"]
+
+# ============================================
+# PUBLIC INPUTS (Visible on-chain)
+# ============================================
+
+# Job identification
+job_id = "42"
+
+# Requirements
+required_credential_type = "1"
+required_skills = ["7", "7", "5", "4", "6"]
+min_experience = "3"
+min_education = "2"
+min_projects = "10"
+required_certification = "0"  # 0 if not required
+required_company_root = "0"   # 0 if not required
+
+# Credential commitment
+# This is the pedersen_hash of the credential data
+# Calculated from: pedersen_hash([credential_id, credential_secret, applicant_id, skills[0-4], experience, education])
+credential_commitment = "0x04a0a62b51f498d1904ab405b6fd4e000af7d069ed4e578f27de295935b27b3"
+
+# Timing
+current_timestamp = "1700000000"
+application_deadline = "1750000000"

@@ -1,0 +1,57 @@
+# ============================================
+# PRIVATE INPUTS (Kept secret by issuer)
+# ============================================
+
+# Issuer's authority proof
+issuer_secret = "11111"
+issuer_id = "1"
+
+# Credential details
+recipient_id = "100"
+credential_type = "1"  # 1=Employment, 2=Education, 3=Skill, etc.
+
+# Credential data array (8 fields - flexible based on type)
+# For Employment credentials:
+#   [0] = years_of_experience
+#   [1] = education_level
+#   [2-6] = skill_levels (5 skills)
+#   [7] = reserved
+credential_data = ["8", "5", "3", "2", "1", "0", "0", "0"]
+
+# Timestamps
+issue_timestamp = "1700000000"
+expiry_timestamp = "1800000000"
+
+# Additional metadata
+issuer_name_hash = "12345"
+credential_metadata_hash = "67890"
+
+# ============================================
+# PUBLIC INPUTS (Visible on-chain)
+# ============================================
+
+# Merkle proof that issuer is authorized
+# This will be calculated - placeholder for now
+authorized_issuer_root = "0x075b98429bc9c8abf6e99367069deda7736f7f7ff7ae0ffa806f592f0e671faf"
+
+# Merkle proof (8 levels)
+issuer_merkle_proof = ["1", "2", "3", "4", "5", "6", "7", "8"]
+issuer_merkle_indices = ["0", "1", "0", "1", "0", "1", "0", "1"]
+
+# Validation parameters
+min_validity_period = "1000000"  # Minimum validity in seconds
+current_timestamp = "1700000000"
+
+# ============================================
+# CREDENTIAL TYPE REFERENCE
+# ============================================
+# 1 = Employment Credential
+# 2 = Education Credential
+# 3 = Skill Certification
+# 4 = Professional License
+# 5 = Identity Verification
+# 6 = Age Verification
+# 7 = Address Verification
+# 8 = Financial Status
+# 9 = Health Record
+# 10 = Custom/Other

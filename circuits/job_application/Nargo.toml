@@ -1,0 +1,6 @@
+[package]
+name = "job_application"
+type = "bin"
+authors = [""]
+
+[dependencies]

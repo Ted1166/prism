@@ -1,0 +1,25 @@
+reporter_secret = "12345"
+reporter_id = "1"
+
+# Report details (must match original report)
+report_id = "100"
+company_id = "500"
+report_category = "1"  # 1=Fraud
+incident_date = "1500000"
+incident_location_hash = "999"
+
+# ============================================
+# PUBLIC INPUTS (From smart contract)
+# ============================================
+
+# These values come from the original whistleblower report
+# Run the whistleblower test to get these values
+report_nullifier = "0x2aa9121c9325c43484da11501fabbefe35ccd3acf838cf7ccb4865b2c11da686"
+reporter_commitment = "0x266324963f872fb50fb116702d7636acadd0c941a5b65c417a0964e6cccf68b1"
+
+# Verification status from smart contract
+# 0 = pending, 1 = under review, 2 = verified, 3 = rejected
+verification_status = "2"
+
+# Reward amount (in wei, cents, or smallest unit)
+reward_amount = "50000"  # $50,000 or equivalent
