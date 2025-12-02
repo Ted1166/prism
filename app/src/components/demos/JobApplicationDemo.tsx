@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { saveApplication, getUserCredentials, generateNullifier } from '@/lib/storage';
 import { useToast } from '@/hooks/use-toast';
@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
-import { CheckCircle, XCircle, Lock, Sparkles, Send } from 'lucide-react';
+import { CheckCircle, XCircle, Lock, Sparkles, Send, Edit } from 'lucide-react';
 import { Label } from '@radix-ui/react-label';
 
 interface JobRequirements {
@@ -42,12 +42,43 @@ export function JobApplicationDemo() {
   const { toast } = useToast();
   const [step, setStep] = useState<'view' | 'generate' | 'submit' | 'success'>('view');
   const [progress, setProgress] = useState(0);
-  const [userCreds] = useState<UserCredential>({
+  const [userCreds, setUserCreds] = useState<UserCredential>({
     skillLevels: [8, 9, 7, 6, 8],
     yearsExperience: 5,
     educationLevel: 3,
     totalProjects: 20,
   });
+
+  useEffect(() => {
+    loadCredentials();
+    
+    const interval = setInterval(loadCredentials, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const loadCredentials = () => {
+    const savedCreds = getUserCredentials();
+    if (savedCreds) {
+      setUserCreds({
+        skillLevels: savedCreds.skills.map(s => s.level),
+        yearsExperience: savedCreds.yearsExperience,
+        educationLevel: getEducationLevel(savedCreds.education),
+        totalProjects: savedCreds.projects,
+      });
+    }
+  };
+
+  const getEducationLevel = (education: string): number => {
+    const levels: { [key: string]: number } = {
+      'High School': 1,
+      "Associate's Degree": 2,
+      "Bachelor's Degree": 3,
+      "Master's Degree": 4,
+      'Doctorate': 5,
+    };
+    return levels[education] || 3;
+  };
+
   const [proof, setProof] = useState<string>('');
   const [nullifier, setNullifier] = useState<string>('');
 
@@ -91,7 +122,7 @@ export function JobApplicationDemo() {
         jobTitle: SAMPLE_JOB.title,
         company: 'TechCorp',
         location: 'Remote',
-        appliedDate: new Date(). toLocaleDateString(),
+        appliedDate: new Date().toLocaleDateString(),
         lastUpdate: 'Just now',
         status: 'submitted' as const,
         requirements: {
@@ -124,7 +155,19 @@ export function JobApplicationDemo() {
     <div className="max-w-5xl mx-auto space-y-6">
       {step === 'view' && (
         <>
-          <div className="grid md:grid-cols-2 gap-6">
+            {/* ← ADD: Quick edit button at the top */}
+            <div className="flex justify-end mb-4">
+                <Button 
+                variant="outline" 
+                size="sm"
+                onClick={() => navigate('/my-applications')}
+                className="gap-2"
+                >
+                <Edit className="w-4 h-4" />
+                Edit My Credentials
+                </Button>
+            </div>
+            <div className="grid md:grid-cols-2 gap-6">
             {/* Job Requirements */}
             <Card className="border-primary/20 shadow-glow-cyan">
               <CardHeader>
