@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Home, FlaskConical, Briefcase, Shield, Settings } from 'lucide-react';
+import { Menu, X, Home, FlaskConical, Briefcase, Shield, Settings, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export function Navigation() {
@@ -22,9 +22,19 @@ export function Navigation() {
       <div className="container mx-auto px-6">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="text-2xl font-bold text-primary">
-            PRISM
-          </Link>
+          <Link to="/" className="flex items-center gap-2">
+            <div className="relative">
+                <div className="w-9 h-9 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center shadow-lg">
+                <Shield className="w-5 h-5 text-white" />
+                </div>
+                <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-accent rounded-full border-2 border-background">
+                <CheckCircle className="w-full h-full text-background" />
+                </div>
+            </div>
+            <span className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                PRISM
+            </span>
+            </Link>
 
           {/* Desktop Navigation - Hidden on mobile */}
           <div className="hidden md:flex items-center gap-2">

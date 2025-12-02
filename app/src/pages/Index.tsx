@@ -6,8 +6,13 @@ import { CTA } from "@/components/CTA";
 import { Statistics } from "@/components/Statistics";
 import { ZKProofVisualizer } from "@/components/ZKProofVisualizer";
 import { Navigation } from "@/components/Navigation";
+import { useEffect } from "react";
 
 const Index = () => {
+  useEffect(() => {
+    document.title = "PRISM - Zero-Knowledge Employment Platform";
+  }, []);
+
   return (
     <>
       <Navigation/>
