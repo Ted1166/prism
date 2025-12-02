@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Github, Book } from "lucide-react";
+import { ArrowRight, Github, Book, Briefcase, Shield, Settings } from "lucide-react";
 
 export const CTA = () => {
   return (
@@ -22,11 +23,35 @@ export const CTA = () => {
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-            <Button variant="default" size="lg" className="text-lg group">
-              Get Started
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <Button variant="default" size="lg" className="text-lg group" asChild>
+              <Link to="/demo">
+                Try Demo
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
             </Button>
-            <Button variant="outline" size="lg" className="text-lg">
+            <Button variant="outline" size="lg" className="text-lg" asChild>
+              <Link to="/my-applications">
+                <Briefcase className="w-5 h-5" />
+                My Applications
+              </Link>
+            </Button>
+            <Button variant="outline" size="lg" className="text-lg" asChild>
+              <Link to="/my-reports">
+                <Shield className="w-5 h-5" />
+                My Reports
+              </Link>
+            </Button>
+          </div>
+
+          {/* Secondary CTAs */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button variant="ghost" size="lg" className="text-lg hover:text-primary" asChild>
+              <Link to="/admin">
+                <Settings className="w-5 h-5" />
+                Admin Panel
+              </Link>
+            </Button>
+            <Button variant="ghost" size="lg" className="text-lg">
               <Book className="w-5 h-5" />
               Read Documentation
             </Button>

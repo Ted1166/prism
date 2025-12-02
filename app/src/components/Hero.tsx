@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Shield, Lock, Eye } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const Hero = () => {
   return (
@@ -50,11 +51,13 @@ export const Hero = () => {
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-            <Button variant="default" size="lg" className="text-lg">
-              Start Anonymous Application
-            </Button>
-            <Button variant="outline" size="lg" className="text-lg">
-              Learn How It Works
+            <Link to="/demo">
+              <Button variant="hero" size="lg" className="text-lg w-full sm:w-auto">
+                Start Anonymous Application
+              </Button>
+            </Link>
+            <Button variant="outline" size="lg" className="text-lg" asChild>
+              <a href="#how-it-works">Learn How It Works</a>
             </Button>
           </div>
 
