@@ -5,6 +5,9 @@
 [![Built with Noir](https://img.shields.io/badge/Built%20with-Noir-purple)](https://noir-lang.org/)
 [![Starknet](https://img.shields.io/badge/Deployed%20on-Starknet-orange)](https://starknet.io/)
 
+### [![Try Demo](https://img.shields.io/badge/🎮_TRY_DEMO-Live_Demo-success?style=for-the-badge)](https://prism-umber.vercel.app)
+
+
 > A privacy-first platform using zero-knowledge proofs to eliminate hiring bias and protect whistleblowers. Prove your qualifications or report misconduct without revealing your identity.
 
 ---
