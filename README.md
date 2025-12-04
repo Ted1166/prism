@@ -2,14 +2,17 @@
 
 **Tagline:** Prove. Don't Reveal.
 
-[![Demo](https://img.shields.io/badge/Demo-Live-brightgreen)](your-demo-url)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Built with Noir](https://img.shields.io/badge/Built%20with-Noir-purple)](https://noir-lang.org/)
 [![Starknet](https://img.shields.io/badge/Deployed%20on-Starknet-orange)](https://starknet.io/)
 
 > A privacy-first platform using zero-knowledge proofs to eliminate hiring bias and protect whistleblowers. Prove your qualifications or report misconduct without revealing your identity.
 
 ---
+## 📖 Description
+
+PRISM is a privacy platform that uses zero-knowledge cryptography to solve two critical problems in the modern workplace: hiring discrimination and whistleblower retaliation.
+
+In today's job market, qualified candidates are filtered out before their skills are even considered—based on their name, university, or background. Meanwhile, employees who witness misconduct stay silent, knowing that speaking up could end their careers. PRISM changes this dynamic entirely.
 
 ## 🎯 The Problem
 
